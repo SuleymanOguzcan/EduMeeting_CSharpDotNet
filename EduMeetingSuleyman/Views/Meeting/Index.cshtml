@@ -1,0 +1,70 @@
+﻿@model MeetingVM
+
+
+<section class="heading-page header-text" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6>Here are our upcoming meetings</h6>
+                <h2>Upcoming Meetings</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="filters">
+                            <ul>
+                                <li data-filter="*" class="active">bütün hepsi</li>
+                                @foreach (Category category in Model.Categories)
+                                {
+                                    <li data-filter=".cat_@category.Id">@category.Name</li>   
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="row grid">
+                            @foreach (Meeting me in Model.Meetings)
+                            {
+                                <div class="col-lg-4 templatemo-item-col all cat_@me.CategoryId">
+                                    <div class="meeting-item"> 
+                                        <div class="thumb">
+                                            <div class="price">
+                                                <span>@me.Price tl</span>
+                                            </div>
+                                            <a asp-controller="Meeting" asp-action="Detail" asp-route-id="@me.Id" asp-route-name="@me.Name"><img src="@me.Picture" alt=""></a>
+                                        </div>
+                                        <div class="down-content">
+                                            <div class="date">
+                                                <h6>Nov <span>12</span></h6>
+                                            </div>
+                                            <a asp-controller="Meeting" asp-action="Detail" asp-route-id="@me.Id"><h4>@me.Name</h4></a>
+                                            <p>@me.Decription</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="pagination">
+                            <ul>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

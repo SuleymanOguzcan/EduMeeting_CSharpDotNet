@@ -1,0 +1,53 @@
+﻿@model Meeting  // inumabable niye değil çünkü liste göndermiyoruz bir tane data gönderiyorsun o yüzden sadece Meeting
+
+<section class="heading-page header-text" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6>@Model.Name</h6>
+                <h2>@Model.Decription</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="meeting-single-item">
+                            <div class="thumb">
+                                <div class="price">
+                                    <span>@Model.Price TL</span>
+                                </div>
+                                <div class="date">
+                                    <h6>Nov <span>12</span></h6>
+                                </div>
+                                <a href="meeting-details.html"><img src="assets/images/single-meeting.jpg" alt=""></a>
+                            </div>
+                            <div class="down-content">
+                                @Html.Raw(Model.Detail)  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="main-button-red">
+                            <a href="meetings.html">Back To Meetings List</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>
+            Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+            <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+        </p>
+    </div>
+</section>
+
+
+@* @Html.Raw(Model.Detail)  sql e lorem yapıştırdım.  bu şekilde yazılması text te istersen bold yap gibi """"video 8 1:22 dk """"""*@
